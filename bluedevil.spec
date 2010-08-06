@@ -51,6 +51,8 @@ based on %{name} .
 
 %build
 %cmake_kde4
+%make
+
 %install
 rm -rf %buildroot
 
