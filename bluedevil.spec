@@ -5,7 +5,7 @@ Version:       1.0
 Release:       %mkrel 0.rc4.1
 License:       GPL
 URL:           http://www.kde.org
-Patch0:        bluedeveil-1.0-rc2-gita6447c57.patch
+Source0:       %name-%version.tar.bz2
 BuildRequires: libbluedevil-devel
 Provides:      bluez-pin
 Requires:      bluez >= 4.28
