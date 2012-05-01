@@ -1,8 +1,8 @@
 Name:		bluedevil
+Version:	1.2.3
+Release:	%mkrel 1
 Summary:	BlueDevil is the new bluetooth stack for KDE4
 Group:		Graphical desktop/KDE
-Version:	1.2.2
-Release:	%mkrel 1
 License:	GPL
 URL:		https://projects.kde.org/projects/extragear/base/bluedevil
 Source0:	http://fr2.rpmfind.net/linux/KDE/stable/%{name}/%{version}/src/%{name}-%{version}.tar.bz2
@@ -22,7 +22,6 @@ BlueDevil is the new bluetooth stack for KDE, it's composed of:
 KCM, KDED, KIO, Library and some other small applications.
 
 %files -f %{name}.lang
-%defattr(-,root,root)
 %{_kde_bindir}/*
 %{_kde_libdir}/kde4/*
 %{_kde_datadir}/kde4/services/*
@@ -45,7 +44,6 @@ This package contains header files needed if you wish to build applications
 based on %{name}.
 
 %files		devel
-%defattr(-,root,root)
 %{_kde_includedir}/actionplugin.h
 
 #-----------------------------------------------------------------------------
@@ -61,7 +59,6 @@ based on %{name}.
 rm -rf %{buildroot}
 
 %makeinstall_std -C build
-sed -i 's#Categories=Qt;KDE;X-Bluetooth;Network#Categories=Qt;KDE;X-Bluetooth;Network;#g' %{buildroot}%{_kde_applicationsdir}/{bluedevil-network-dun.desktop,bluedevil-network-panu.desktop}
 
 %find_lang %{name}
 
