@@ -1,11 +1,12 @@
 Name:		bluedevil
 Version:	1.2.3
-Release:	%mkrel 1
+Release:	2
 Summary:	BlueDevil is the new bluetooth stack for KDE4
 Group:		Graphical desktop/KDE
 License:	GPL
 URL:		https://projects.kde.org/projects/extragear/base/bluedevil
 Source0:	http://fr2.rpmfind.net/linux/KDE/stable/%{name}/%{version}/src/%{name}-%{version}.tar.bz2
+Source100:	%name.rpmlintrc
 BuildRequires:	libbluedevil-devel >= 1.9
 BuildRequires:	kdelibs4-devel
 Provides:	bluez-pin
