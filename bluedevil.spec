@@ -1,6 +1,6 @@
 Name:		bluedevil
-Version:	1.2.3
-Release:	2
+Version:	1.2.4
+Release:	1
 Summary:	BlueDevil is the new bluetooth stack for KDE4
 Group:		Graphical desktop/KDE
 License:	GPL
