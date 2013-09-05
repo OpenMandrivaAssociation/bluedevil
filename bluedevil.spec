@@ -1,11 +1,11 @@
 Summary:	The new bluetooth stack for KDE4
 Name:		bluedevil
-Version:	1.3.1
-Release:	3
+Version:	1.3.2
+Release:	1
 Group:		Graphical desktop/KDE
 License:	GPL
 Url:		https://projects.kde.org/projects/extragear/base/bluedevil
-Source0:	http://fr2.rpmfind.net/linux/KDE/stable/%{name}/%{version}/src/%{name}-%{version}.tar.bz2
+Source0:	http://fr2.rpmfind.net/linux/KDE/stable/%{name}/%{version}/src/%{name}-%{version}.tar.xz
 Source100:	%{name}.rpmlintrc
 
 BuildRequires:	kdelibs4-devel
@@ -47,7 +47,7 @@ based on %{name}.
 #-----------------------------------------------------------------------------
 
 %prep
-%setup -q
+%setup -qn %{name}-v%{version}
 
 %build
 %cmake_kde4
