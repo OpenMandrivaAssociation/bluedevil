@@ -9,7 +9,7 @@ Source0:	http://fr2.rpmfind.net/linux/KDE/stable/%{name}/%{version}/src/%{name}-
 Source100:	%{name}.rpmlintrc
 
 BuildRequires:	kdelibs4-devel
-BuildRequires:	pkgconfig(bluedevil) >= 1.9
+BuildRequires:	pkgconfig(bluedevil)
 Provides:	bluez-pin
 Requires:	bluez >= 4.28
 Requires:	kdebase4-runtime
