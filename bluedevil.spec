@@ -23,28 +23,12 @@ KCM, KDED, KIO, Library and some other small applications.
 %{_kde_bindir}/*
 %{_kde_libdir}/kde4/*
 %{_kde_datadir}/kde4/services/*
-%{_kde_datadir}/kde4/servicetypes/*
 %{_kde_datadir}/applications/kde4/*
 %{_kde_appsdir}/bluedevil
 %{_kde_appsdir}/bluedevilwizard
 %{_kde_datadir}/mime/packages/bluedevil-mime.xml
-%{_kde_datadir}/dbus-1/services/org.kde.BlueDevil.Service.service
-%{_kde_libdir}/libbluedevilaction.so
 
 #------------------------------------------------
-
-%package	devel
-Summary:	Devel stuff for %{name}
-Group:		Development/KDE and Qt
-
-%description	devel
-This package contains header files needed if you wish to build applications
-based on %{name}.
-
-%files		devel
-%{_kde_includedir}/bluedevil/actionplugin.h
-
-#-----------------------------------------------------------------------------
 
 %prep
 %setup -q
