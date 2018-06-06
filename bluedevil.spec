@@ -30,6 +30,7 @@ BuildRequires:	pkgconfig(shared-mime-info)
 Provides:	bluez-pin
 Requires:	bluez >= 4.28
 Requires:	obexd
+%rename bluedevil5
 
 %description
 BlueDevil is the new bluetooth stack for KDE, it's composed of:
