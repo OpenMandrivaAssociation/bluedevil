@@ -1,44 +1,75 @@
-Summary:	The new bluetooth stack for KDE4
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
+
+Summary:	The bluetooth stack for KDE 5
 Name:		bluedevil
-Version:	2.1.1
-Release:	2
+Version:	5.12.90
+Release:	1
 Group:		Graphical desktop/KDE
 License:	GPL
 Url:		https://projects.kde.org/projects/extragear/base/bluedevil
-Source0:	http://fr2.rpmfind.net/linux/KDE/stable/%{name}/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/plasma/%{version}/bluedevil-%{version}.tar.xz
 Source100:	%{name}.rpmlintrc
-
-BuildRequires:	kdelibs4-devel
-BuildRequires:	pkgconfig(bluedevil) <= 2.1
+BuildRequires:	cmake(ECM)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5DBus)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Qt5Qml)
+BuildRequires:	cmake(Qt5Quick)
+BuildRequires:	cmake(KF5CoreAddons)
+BuildRequires:	cmake(KF5WidgetsAddons)
+BuildRequires:	cmake(KF5DBusAddons)
+BuildRequires:	cmake(KF5Notifications)
+BuildRequires:	cmake(KF5IconThemes)
+BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5KIO)
+BuildRequires:	cmake(KF5BluezQt)
+BuildRequires:	cmake(KF5Plasma)
+BuildRequires:	cmake(KDED)
+BuildRequires:	pkgconfig(shared-mime-info)
 Provides:	bluez-pin
 Requires:	bluez >= 4.28
-Requires:	kdebase4-runtime
 Requires:	obexd
 
 %description
 BlueDevil is the new bluetooth stack for KDE, it's composed of:
 KCM, KDED, KIO, Library and some other small applications.
 
-%files -f %{name}.lang
-%{_kde_bindir}/*
-%{_kde_libdir}/kde4/*
-%{_kde_datadir}/kde4/services/*
-%{_kde_datadir}/applications/kde4/*
-%{_kde_appsdir}/bluedevil
-%{_kde_appsdir}/bluedevilwizard
-%{_kde_datadir}/mime/packages/bluedevil-mime.xml
+%files -f %{name}-all.lang
+%{_bindir}/*
+%{_libdir}/qt5/plugins/*.so
+%{_datadir}/applications/*
+%{_datadir}/bluedevilwizard
+%{_datadir}/knotifications5/*
+%{_datadir}/kservices5/*
+%{_datadir}/mime/packages/bluedevil-mime.xml
+%{_datadir}/metainfo/org.kde.plasma.bluetooth.appdata.xml
 
-#------------------------------------------------
+%dir %{_libdir}/qt5/qml/org/kde/plasma/private/bluetooth
+%{_libdir}/qt5/plugins/kf5/kded/*.so
+%{_libdir}/qt5/qml/org/kde/plasma/private/bluetooth/libbluetoothplugin.so
+%{_libdir}/qt5/qml/org/kde/plasma/private/bluetooth/qmldir
+
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.bluetooth
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.bluetooth/contents
+%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.bluetooth/contents/ui
+%{_datadir}/plasma/plasmoids/org.kde.plasma.bluetooth/metadata.desktop
+%{_datadir}/plasma/plasmoids/org.kde.plasma.bluetooth/metadata.json
+%{_datadir}/plasma/plasmoids/org.kde.plasma.bluetooth/contents/ui/*.js
+%{_datadir}/plasma/plasmoids/org.kde.plasma.bluetooth/contents/ui/*.qml
+%{_datadir}/remoteview/bluetooth-network.desktop
+
+#-----------------------------------------------------------------------------
 
 %prep
-%setup -q
+%autosetup -p1
+%cmake_kde5
 
 %build
-%cmake_kde4
-%make
+%ninja -C build
 
 %install
-%makeinstall_std -C build
-
-%find_lang %{name}
-
+%ninja_install -C build
+%find_lang bluedevil || touch bluedevil.lang
+%find_lang plasma_applet_org.kde.plasma.bluetooth || touch plasma_applet_org.kde.plasma.bluetooth.lang
+cat *.lang >%{name}-all.lang
