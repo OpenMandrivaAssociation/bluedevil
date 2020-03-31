@@ -2,12 +2,12 @@
 
 Summary:	The bluetooth stack for KDE 5
 Name:		bluedevil
-Version:	5.18.3
-Release:	2
+Version:	5.18.4.1
+Release:	1
 Group:		Graphical desktop/KDE
 License:	GPL
 Url:		https://projects.kde.org/projects/extragear/base/bluedevil
-Source0:	http://download.kde.org/%{stable}/plasma/%{version}/bluedevil-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/bluedevil-%{version}.tar.xz
 Source100:	%{name}.rpmlintrc
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(Qt5Widgets)
