@@ -3,7 +3,7 @@
 Summary:	The bluetooth stack for KDE 5
 Name:		bluedevil
 Version:	5.18.90
-Release:	1
+Release:	2
 Group:		Graphical desktop/KDE
 License:	GPL
 Url:		https://projects.kde.org/projects/extragear/base/bluedevil
@@ -26,6 +26,7 @@ BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5BluezQt)
 BuildRequires:	cmake(KF5Plasma)
 BuildRequires:	cmake(KDED)
+BuildRequires:	cmake(KF5Kirigami2)
 BuildRequires:	pkgconfig(shared-mime-info)
 Provides:	bluez-pin
 Requires:	bluez >= 4.28
