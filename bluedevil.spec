@@ -27,6 +27,7 @@ BuildRequires:	cmake(KF5BluezQt)
 BuildRequires:	cmake(KF5Plasma)
 BuildRequires:	cmake(KDED)
 BuildRequires:	cmake(KF5Kirigami2)
+BuildRequires:	cmake(KF5Declarative)
 BuildRequires:	pkgconfig(shared-mime-info)
 Provides:	bluez-pin
 Requires:	bluez >= 4.28
