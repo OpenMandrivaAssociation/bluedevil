@@ -2,7 +2,7 @@
 
 Summary:	The bluetooth stack for KDE 5
 Name:		bluedevil
-Version:	5.19.5
+Version:	5.19.90
 Release:	1
 Group:		Graphical desktop/KDE
 License:	GPL
@@ -37,7 +37,7 @@ Requires:	obexd
 BlueDevil is the new bluetooth stack for KDE, it's composed of:
 KCM, KDED, KIO, Library and some other small applications.
 
-%files -f %{name}-all.lang
+%files -f %{name}.lang
 %{_bindir}/*
 %{_libdir}/qt5/plugins/*.so
 %{_datadir}/applications/*
@@ -46,6 +46,9 @@ KCM, KDED, KIO, Library and some other small applications.
 %{_datadir}/kservices5/*
 %{_datadir}/mime/packages/bluedevil-mime.xml
 %{_datadir}/metainfo/org.kde.plasma.bluetooth.appdata.xml
+
+%{_libdir}/qt5/plugins/kcms/kcm_bluetooth.so
+%{_datadir}/kpackage/kcms/kcm_bluetooth
 
 %dir %{_libdir}/qt5/qml/org/kde/plasma/private/bluetooth
 %{_libdir}/qt5/plugins/kf5/kded/*.so
@@ -72,6 +75,4 @@ KCM, KDED, KIO, Library and some other small applications.
 
 %install
 %ninja_install -C build
-%find_lang bluedevil || touch bluedevil.lang
-%find_lang plasma_applet_org.kde.plasma.bluetooth || touch plasma_applet_org.kde.plasma.bluetooth.lang
-cat *.lang >%{name}-all.lang
+%find_lang %{name} --all-name
