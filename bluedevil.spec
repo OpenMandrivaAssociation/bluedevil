@@ -2,8 +2,8 @@
 
 Summary:	The bluetooth stack for KDE 5
 Name:		bluedevil
-Version:	5.23.5
-Release:	2
+Version:	5.24.0
+Release:	1
 Group:		Graphical desktop/KDE
 License:	GPL
 Url:		https://projects.kde.org/projects/extragear/base/bluedevil
@@ -48,8 +48,9 @@ KCM, KDED, KIO, Library and some other small applications.
 %{_datadir}/mime/packages/bluedevil-mime.xml
 %{_datadir}/metainfo/org.kde.plasma.bluetooth.appdata.xml
 
-%{_libdir}/qt5/plugins/kcms/kcm_bluetooth.so
 %{_datadir}/kpackage/kcms/kcm_bluetooth
+%{_libdir}/qt5/plugins/plasma/kcms/systemsettings/kcm_bluetooth.so
+%{_datadir}/qlogging-categories5/bluedevil.categories
 
 %dir %{_libdir}/qt5/qml/org/kde/plasma/private/bluetooth
 %{_libdir}/qt5/plugins/kf5/kded/*.so
