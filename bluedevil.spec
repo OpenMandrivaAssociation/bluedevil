@@ -2,7 +2,7 @@
 
 Summary:	The bluetooth stack for KDE 5
 Name:		bluedevil
-Version:	5.26.4
+Version:	5.26.5
 Release:	1
 Group:		Graphical desktop/KDE
 License:	GPL
