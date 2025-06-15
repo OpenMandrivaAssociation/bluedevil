@@ -5,7 +5,7 @@
 
 Summary:	The bluetooth stack for KDE 6
 Name:		bluedevil
-Version:	6.3.5
+Version:	6.4.0
 Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPL
@@ -78,4 +78,5 @@ KCM, KDED, KIO, Library and some other small applications.
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma.bluetooth/contents/ui
 %{_datadir}/plasma/plasmoids/org.kde.plasma.bluetooth/metadata.json
 %{_datadir}/plasma/plasmoids/org.kde.plasma.bluetooth/contents/ui/*.qml
+%{_datadir}/plasma/plasmoids/org.kde.plasma.bluetooth/contents/config/main.xml
 %{_datadir}/remoteview/bluetooth-network.desktop
