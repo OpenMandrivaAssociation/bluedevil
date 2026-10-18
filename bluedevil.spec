@@ -60,6 +60,8 @@ KCM, KDED, KIO, Library and some other small applications.
 %{_datadir}/bluedevilwizard
 %{_datadir}/knotifications6/*
 %{_datadir}/mime/packages/bluedevil-mime.xml
+%{_datadir}/config.kcfg/bluedevilglobalsettings.kcfg
+%{_datadir}/config.kcfg/filereceiver.kcfg
 
 %{_qtdir}/plugins/plasma/kcms/systemsettings/kcm_bluetooth.so
 %{_datadir}/qlogging-categories6/bluedevil.categories
