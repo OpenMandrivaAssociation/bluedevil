@@ -5,8 +5,8 @@
 
 Summary:	The bluetooth stack for KDE 6
 Name:		bluedevil
-Version:	6.7.5
-Release:	%{?git:0.%{git}.}2
+Version:	6.8.0
+Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPL
 Url:		https://projects.kde.org/projects/extragear/base/bluedevil
