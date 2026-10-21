@@ -1,0 +1,23 @@
+diff -ruN a/src/kded/helpers/requestpin.cpp b/src/kded/helpers/requestpin.cpp
+--- a/src/kded/helpers/requestpin.cpp	2026-10-20 11:02:08.000000000 +0200
++++ b/src/kded/helpers/requestpin.cpp	2026-10-21 23:45:41.422634928 +0200
+@@ -18,6 +18,8 @@
+ 
+ #include <KLocalizedString>
+ #include <KNotification>
++#include <KWindowSystem>
++#include <KX11Extras>
+ 
+ RequestPin::RequestPin(BluezQt::DevicePtr device, bool numeric, QObject *parent)
+     : QObject(parent)
+@@ -86,6 +88,10 @@
+     dialog->setWindowFlags(Qt::WindowStaysOnTopHint);
+ 
+     dialog->show();
++
++    if (KWindowSystem::isPlatformX11()) {
++        KX11Extras::forceActiveWindow(dialog->winId());
++    }
+ }
+ 
+ void RequestPin::checkPin(const QString &pin)

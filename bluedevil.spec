@@ -6,7 +6,7 @@
 Summary:	The bluetooth stack for KDE 6
 Name:		bluedevil
 Version:	6.8.1
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 Group:		Graphical desktop/KDE
 License:	GPL
 Url:		https://projects.kde.org/projects/extragear/base/bluedevil
@@ -15,6 +15,8 @@ Source0:	https://invent.kde.org/plasma/bluedevil/-/archive/%{gitbranch}/bluedevi
 %else
 Source0:	http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/bluedevil-%{version}.tar.xz
 %endif
+# Raise the Bluetooth PIN dialog on X11. Wayland is unchanged.
+Patch0:		bluedevil-6.8.1-x11-activate.patch
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(Qt6)
 BuildRequires:	cmake(Qt6Widgets)
